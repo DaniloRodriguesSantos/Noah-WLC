@@ -3,7 +3,42 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC1
+  - objInterativo
+  - ThinkPlatforms
+  - ThinkCheckpoint
+  - ThinkPlatforms_Tipo2
+  - Botao
+  - Interativo
+  - Platforms
+  - FimDemo
+  - Teleporte
+  - PontoVirar
+  - PontoDesaparecer
+  - InterativoCOMDialogue
+  - DPT
+  - AsD
+  - "letra_ca\xE7aPalavra"
+  - Pushable
+  - CristalAzul
+  - CristalRoxo
+  - CristalVerde
+  - BeginCityTest
+  - EndCityTest
+  - PensamentoEscolha
+  - PlatformEscolha
+  - PlatformBase
+  - ColisorCaixa
+  - DayTimeChange
+  - PlatformMovel
+  - AfternoonIMG
+  - MorningIMG
+  - NightIMG
+  - terminalForCollision
+  - SAM
+  - Border
+  - MiniG_Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,15 +48,15 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Platform
+  - Stairway
+  - Caixa
+  - Terminais
+  - CaixaColisao
+  - PlatformBoundaries
+  - Mapa
+  - NotGround
+  - CaixaRigida
   - 
   - 
   - 
@@ -40,4 +75,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer
+    uniqueID: 2144610121
+    locked: 0
+  - name: Background
+    uniqueID: 1674129505
+    locked: 0
+  - name: Personagens
+    uniqueID: 3668057545
+    locked: 0
+  - name: Player
+    uniqueID: 1733206451
+    locked: 0
+  - name: Foreground
+    uniqueID: 194004943
     locked: 0

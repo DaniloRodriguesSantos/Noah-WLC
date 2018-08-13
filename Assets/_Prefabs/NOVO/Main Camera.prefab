@@ -1,0 +1,271 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1069730482915656}
+  m_IsPrefabParent: 1
+--- !u!1 &1069730482915656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4222224528826022}
+  - component: {fileID: 20022353132145960}
+  - component: {fileID: 124046106872263026}
+  - component: {fileID: 81642840657613080}
+  - component: {fileID: 114982157898266960}
+  - component: {fileID: 82453301278380124}
+  - component: {fileID: 114422329766230508}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4222224528826022
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 212.48, y: -11.72, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20022353132145960
+Camera:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 7.05
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &81642840657613080
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_Enabled: 1
+--- !u!82 &82453301278380124
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.392
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &114422329766230508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4166d12c53852ec41b3b6c4c7de611b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prologo_OST: {fileID: 8300000, guid: 6b11eae225cda864d8c74b10756a246b, type: 3}
+  game_OST: {fileID: 8300000, guid: 01bc40dc21e6ea9498746d9d011c33f1, type: 3}
+  pensamento_OST: {fileID: 8300000, guid: 16415ce54791abe468b145dabb5fafe8, type: 3}
+  logo: {fileID: 8300000, guid: 0fdeb0f3b37febb46a90b64074fc4efc, type: 3}
+  digitandoCel: {fileID: 8300000, guid: cc18226cd455f3144b675b51f889ca9f, type: 3}
+  interacao: {fileID: 8300000, guid: 11d896e2949792440868229b97bb9ed0, type: 3}
+  balao: {fileID: 8300000, guid: 4be05b6d89ae07641b5671b24b0a29c3, type: 3}
+  mensagem: {fileID: 8300000, guid: 5b2b1f3f3f9695f41a456e45d0f064cc, type: 3}
+  selecionarBotao: {fileID: 8300000, guid: 8dbdba00c935d4949b852f15ecf1a9fd, type: 3}
+  selecionarPlat: {fileID: 8300000, guid: 5f5b41146bcf19446bc44ea61dff9853, type: 3}
+--- !u!114 &114982157898266960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c87509c8315a26448eeae15c310a036, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  damping: 0.3
+  lookAheadFactor: 0.3
+  lookAheadReturnSpeed: 0.2
+  lookAheadMoveThreshold: 0.1
+  bounds: 1
+  Papelaria_BG: {fileID: 0}
+  Quarto_Noah_BG: {fileID: 0}
+  Corredor_Noah_BG: {fileID: 0}
+  SalaDeEstar_Noah_BG: {fileID: 0}
+  Portaria_BG: {fileID: 0}
+  Escola_BG: {fileID: 0}
+  SalaDeAula_BG: {fileID: 0}
+  Pensamento_Tipo1_BG: {fileID: 0}
+  Pensamento_Tipo2_BG: {fileID: 0}
+  ParteCima_MetroEscola_BG: {fileID: 0}
+  ParteBaixo_MetroEscola_BG: {fileID: 0}
+  ParteCima_PortariaMetro_BG: {fileID: 0}
+  ParteBaixo_PortariaMetro_BG: {fileID: 0}
+  Papelaria_minCam_Pos: {x: -6.13, y: 0.36, z: -10}
+  Papelaria_maxCam_Pos: {x: -6.13, y: 0.36, z: -10}
+  QuartoNoah_minCam_Pos: {x: 14.89, y: 0.36, z: -10}
+  QuartoNoah_maxCam_Pos: {x: 14.89, y: 0.36, z: -10}
+  Corredor_Noah_minCam_Pos: {x: 0, y: 0, z: -10}
+  Corredor_Noah_maxCam_Pos: {x: 0, y: 0, z: -10}
+  SalaDeEstar_Noah_minCam_Pos: {x: 32.63, y: 0.36, z: -10}
+  SalaDeEstar_Noah__maxCam_Pos: {x: 39.29, y: 0.36, z: -10}
+  Portaria_minCam_Pos: {x: 65.87, y: 2.18, z: -10}
+  Portaria_maxCam_Pos: {x: 104.11, y: 2.18, z: -10}
+  Escola_minCam_Pos: {x: 166.93, y: 1.37, z: -10}
+  Escola_maxCam_Pos: {x: 206.25, y: 1.37, z: -10}
+  SalaDeAula_minCam_Pos: {x: 200.04, y: 12.48, z: -10}
+  SalaDeAula_maxCam_Pos: {x: 212.51, y: 12.48, z: -10}
+  Pensamento_Tipo1_minCam_Pos: {x: 51.86, y: -20.23, z: -10}
+  Pensamento_Tipo1_maxCam_Pos: {x: 64.4, y: -15.06, z: -10}
+  Pensamento_Tipo2_minCam_Pos: {x: -11.78, y: -27.5, z: -10}
+  Pensamento_Tipo2_maxCam_Pos: {x: -2.16, y: -22.13, z: -10}
+  ParteCima_MetroEscola_minCam_Pos: {x: 239.37, y: -18.15, z: -10}
+  ParteCima_MetroEscola_maxCam_Pos: {x: 322.75, y: -18.15, z: -10}
+  ParteBaixo_MetroEscola_minCam_Pos: {x: 239.37, y: -38.87, z: -10}
+  ParteBaixo_MetroEscola_maxCam_Pos: {x: 322.75, y: -32.38, z: -10}
+  ParteCima_PortariaMetro_minCam_Pos: {x: 129.18, y: 2.47, z: -10}
+  ParteCima_PortariaMetro_maxCam_Pos: {x: 212.51, y: 2.47, z: -10}
+  ParteBaixo_PortariaMetro_minCam_Pos: {x: 129.23, y: -17.99, z: -10}
+  ParteBaixo_PortariaMetro_maxCam_Pos: {x: 212.48, y: -11.72, z: -10}
+  minCameraPos: {x: 0, y: -0.38, z: -10}
+  maxCameraPos: {x: 1.31, y: -0.38, z: -10}
+--- !u!124 &124046106872263026
+Behaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1069730482915656}
+  m_Enabled: 1
