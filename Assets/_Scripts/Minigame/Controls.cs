@@ -11,15 +11,24 @@ public class Controls : MonoBehaviour
     public bool moveRight;
     public int player_life;
     public int player_agility;
+    private MiniG_UIController miniG_Canvas;
 
-    void Start()
+    // Retry
+    public Vector3 originalPos;
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        miniG_Canvas = GameObject.Find("MiniG_Canvas").GetComponent<MiniG_UIController>();
+    }
+
+    private void Start()
+    {
+        originalPos = transform.position;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             moveLeft = true;
         }
@@ -28,7 +37,7 @@ public class Controls : MonoBehaviour
             moveLeft = false;
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             moveRight = true;
         }
@@ -69,6 +78,7 @@ public class Controls : MonoBehaviour
             if (player_life == 0)
             {
                 gameObject.SetActive(false);
+                miniG_Canvas.playerDied();
             }
         }
     }
