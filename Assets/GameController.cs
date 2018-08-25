@@ -87,6 +87,8 @@ public class GameController : MonoBehaviour {
             dayTime_Night_IMG[i].SetActive(false);
 
         }
+
+        resetCanRetry();
     }
 
 	// Update is called once per frame
@@ -175,7 +177,7 @@ public class GameController : MonoBehaviour {
             playerTrans.position = pravoltar_Dia1_Point.position;
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             playerTrans.position = praIr_Dia1_Point.position;
         }
@@ -198,6 +200,14 @@ public class GameController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.K))
         {
             playerTrans.position = pravoltar_Dia3_Point.position;
+        }
+    }
+
+    private void resetCanRetry()
+    {
+        if (SceneManager.GetActiveScene().name == "Dia_2")
+        {
+            PlayerPrefs.SetString("canRetry", "false");
         }
     }
 }

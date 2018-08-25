@@ -245,10 +245,10 @@ public class PlatformerCharacter2D : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.E))
             {
                 isConnectedToCaixa = false;
-                if (SaveCaixaPosition)
-                {
-                    Caixa.GetComponent<CityInteractables>().Save_Caixa();
-                }
+                //if (SaveCaixaPosition)
+                //{
+                //    Caixa.GetComponent<CityInteractables>().Save_Caixa();
+                //}
             }
         }
 

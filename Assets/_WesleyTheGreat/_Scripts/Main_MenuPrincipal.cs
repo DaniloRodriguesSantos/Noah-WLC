@@ -42,6 +42,10 @@ public class Main_MenuPrincipal : MonoBehaviour
         _m_Principal.SetActive(true);
         _m_Opcoes.SetActive(false);
         _m_Creditos.SetActive(false);
+        if (!PlayerPrefs.HasKey("canRetry"))
+        {
+            GameConstants.PlayerPrefsValues();
+        }
     }
 
     void Update()

@@ -142,13 +142,13 @@ public class CityInteractables : MonoBehaviour
 
         //Save_Caixa();
 
-        if (this.state == FSMStates.Caixa)
-        {
-            if (PlayerPrefs.HasKey("Caixa_PosX" + gameObject.name))
-            {
-                Load_Caixa();
-            }
-        }
+        //if (this.state == FSMStates.Caixa)
+        //{
+        //    if (PlayerPrefs.HasKey("Caixa_PosX" + gameObject.name))
+        //    {
+        //        Load_Caixa();
+        //    }
+        //}
 
         if (this.state == FSMStates.BotaoPlatMovelNiveis)
         {
@@ -615,16 +615,15 @@ public class CityInteractables : MonoBehaviour
         ///StartCoroutine(Give_Mov_Back(0.3f));
     }
 
-    public void Save_Caixa()
-    {
-        PlayerPrefs.SetFloat("Caixa_PosX" + gameObject.name, trans.position.x);
-        PlayerPrefs.SetFloat("Caixa_PosY" + gameObject.name, trans.position.y);
-        PlayerPrefs.SetFloat("Caixa_PosZ" + gameObject.name, trans.position.z);
-        //print("afhuhbdfusdbf");
-    }
+    //public void Save_Caixa()
+    //{
+    //    PlayerPrefs.SetFloat("Caixa_PosX" + gameObject.name, trans.position.x);
+    //    PlayerPrefs.SetFloat("Caixa_PosY" + gameObject.name, trans.position.y);
+    //    PlayerPrefs.SetFloat("Caixa_PosZ" + gameObject.name, trans.position.z);
+    //}
 
-    public void Load_Caixa()
-    {
-        trans.position = new Vector3(PlayerPrefs.GetFloat("Caixa_PosX" + gameObject.name), PlayerPrefs.GetFloat("Caixa_PosY" + gameObject.name), PlayerPrefs.GetFloat("Caixa_PosZ" + gameObject.name));
-    }
+    //public void Load_Caixa()
+    //{
+    //    trans.position = new Vector3(PlayerPrefs.GetFloat("Caixa_PosX" + gameObject.name), PlayerPrefs.GetFloat("Caixa_PosY" + gameObject.name), PlayerPrefs.GetFloat("Caixa_PosZ" + gameObject.name));
+    //}
 }
