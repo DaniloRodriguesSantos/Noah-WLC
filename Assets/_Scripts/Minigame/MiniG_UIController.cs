@@ -177,6 +177,7 @@ public class MiniG_UIController : MonoBehaviour {
     public void closeGame()
     {
         MiniGame.SetActive(false);
+        retryGame_Waves();
         unPauseGame();
     }
 
@@ -184,9 +185,9 @@ public class MiniG_UIController : MonoBehaviour {
     {
         MiniGame.SetActive(false);
         unPauseGame();
+        retryGame_Boss();
         if (minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Boss_MiniGame)
         {
-
             if (PlayerPrefs.GetString("canRetry") == "false")
             {
                 PlayerPrefs.SetString("canRetry", "true");
@@ -259,5 +260,6 @@ public class MiniG_UIController : MonoBehaviour {
         // Boss Controller
         miniGBossController_Script.gameObject.transform.position = miniGBossController_Script.originalPos;
         miniGBossController_Script.boss_Life = miniGBossController_Script.boss_MaxLife;
+        miniGBossController_Script.gameObject.SetActive(true);
     }
 }
