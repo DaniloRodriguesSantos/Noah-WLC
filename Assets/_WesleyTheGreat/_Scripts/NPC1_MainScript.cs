@@ -173,12 +173,14 @@ public class NPC1_MainScript : MonoBehaviour
 
     void boiandoState()
     {
-        exclamation_sprite.SetActive(true);
+        if(exclamation_sprite != null) { exclamation_sprite.SetActive(true); }
+        
     }
 
     void interagindoState()
     {
-        exclamation_sprite.SetActive(false);
+        if(exclamation_sprite != null) { exclamation_sprite.SetActive(false); }
+        
 
 
         if (voltandoDoMiniGame_Balao == false)

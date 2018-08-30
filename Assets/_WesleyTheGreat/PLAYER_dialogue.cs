@@ -13,6 +13,12 @@ public class PLAYER_dialogue : MonoBehaviour
     public bool NPC;
     public bool SEM_DIALOGO;
     [Space(10)]
+    public bool SAM_BOSS;
+    public bool MAX_BOSS;
+    public bool LEONARD_BOSS;
+    public bool NOAH_BOSS;
+
+    [Space(10)]
     [Header("--HABILIDADES NOAH--")]
     public bool isso_e_balao;
     public bool isso_e_popUp;
@@ -28,6 +34,10 @@ public class PLAYER_dialogue : MonoBehaviour
     [TextArea(2, 2)]
     public string pergunta_direita;
 
+    [Space(5)]
+    public bool isso_tem_recompenca;
+    public int recompenca_LIFE;
+    public float recompenca_AGILITY;
 
     [Space(15)]
     [Header("--EFEITOS SONOROS--")]
@@ -49,11 +59,17 @@ public class PLAYER_dialogue : MonoBehaviour
     [Space(15)]
     [Header("--DIALOGOS--")]
     [TextArea(5, 2)]
-    public string[] dialogo_1;
+    public string[] dialogo_Main;
     [TextArea(5, 2)]
     public string[] dialogo_resposta_LEFT;
     [TextArea(5, 2)]
     public string[] dialogo_resposta_RIGHT;
+
+
+    [Space(15)]
+    [Header("--DIALOGOS de STORY DRIVEN--")]
+    [TextArea(5, 2)]
+    public string[] dialogue_StoryDriven;
 
     [Space(15)]
     [Header("--SPRITES--")]
@@ -86,6 +102,7 @@ public class PLAYER_dialogue : MonoBehaviour
     PLAYER_main_dialogue script_PLAYER_main_dialogue;
     Audio_MainScript script_Audio_MainScript;
 
+
     // (--VARIAVEIS--) // 
     float tempo;
     int current_array_index;
@@ -94,6 +111,7 @@ public class PLAYER_dialogue : MonoBehaviour
 
     void Awake()
     {
+
         // (--SCRIPTS--) // 
         script_PLAYER_main_dialogue = GetComponentInParent<PLAYER_main_dialogue>();
         script_Audio_MainScript = GameObject.Find("Main Camera").GetComponent<Audio_MainScript>();
@@ -129,6 +147,12 @@ public class PLAYER_dialogue : MonoBehaviour
 
         if (state == FSMState.Interagindo)
         {
+            /*if (Input.GetKeyDown("6"))
+            {
+                canvas_balao_esquerda_text.text = dialogo_Main[current_array_index].Substring(0, current_array_index2);
+                current_array_index2 += 1;
+            }*/
+
             if (passar_por_tempo)
             {
                 tempo += 1 * Time.deltaTime;
@@ -137,7 +161,7 @@ public class PLAYER_dialogue : MonoBehaviour
                     current_array_index += 1;
                     tempo = 0;
                 }
-                if (current_array_index == dialogo_1.Length - 1)
+                if (current_array_index == dialogo_Main.Length - 1)
                 {
                     if (terminar_com_pergunta)
                     {
@@ -155,7 +179,7 @@ public class PLAYER_dialogue : MonoBehaviour
                 if (Input.GetKeyDown("e"))
                 {
                     current_array_index += 1;
-                    if (current_array_index == dialogo_1.Length - 1)
+                    if (current_array_index == dialogo_Main.Length - 1)
                     {
                         if (terminar_com_pergunta)
                         {
@@ -199,6 +223,12 @@ public class PLAYER_dialogue : MonoBehaviour
                     respondeu_LEFT = true;
                     state = FSMState.Interagindo;
                     script_PLAYER_main_dialogue.ja_respondeu = true;
+
+                    if (isso_tem_recompenca)
+                    {
+                        isso_tem_recompenca = false;
+                        PLAYER_Static.player_life_Max += recompenca_LIFE;
+                    }
                 }
                 else if (canvas_balao_direita_text.fontSize == 120)
                 {
@@ -208,8 +238,13 @@ public class PLAYER_dialogue : MonoBehaviour
                     respondeu_RIGHT = true;
                     state = FSMState.Interagindo;
                     script_PLAYER_main_dialogue.ja_respondeu = true;
+
+                    if (isso_tem_recompenca)
+                    {
+                        isso_tem_recompenca = false;
+                        PLAYER_Static.player_agility += recompenca_AGILITY;
+                    }
                 }
-                
             }
         }
     }
@@ -227,14 +262,9 @@ public class PLAYER_dialogue : MonoBehaviour
     {
         if (NOAH)
         {
-
-
-            canvas_balao_esquerda_text.text = dialogo_1[current_array_index];
-            canvas_balao_centro_text.text = dialogo_1[current_array_index];
-            canvas_balao_direita_text.text = dialogo_1[current_array_index];
-
-
-
+            canvas_balao_esquerda_text.text = dialogo_Main[current_array_index];
+            canvas_balao_centro_text.text = dialogo_Main[current_array_index];
+            canvas_balao_direita_text.text = dialogo_Main[current_array_index];
 
             if (isso_e_balao)
             {
@@ -263,7 +293,7 @@ public class PLAYER_dialogue : MonoBehaviour
             else if (isso_e_popUp)
             {
 
-                canvas_Mental_text.text = dialogo_1[current_array_index];
+                canvas_Mental_text.text = dialogo_Main[current_array_index];
 
 
                 imgNoah.sprite = sprites[current_array_index];
@@ -296,15 +326,83 @@ public class PLAYER_dialogue : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < textos_NPCs.Length; i++)
+                if (SAM_BOSS)
                 {
-                    textos_NPCs[i].text = dialogo_1[current_array_index];
+                    if (PLAYER_Static.SAM_BOSS == "boa")
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogo_Main[current_array_index];
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogue_StoryDriven[current_array_index];
+                        }
+                    }
+                }
+                else if (MAX_BOSS)
+                {
+                    if (PLAYER_Static.MAX_BOSS == "boa")
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogo_Main[current_array_index];
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogue_StoryDriven[current_array_index];
+                        }
+                    }
+                }
+                else if (LEONARD_BOSS)
+                {
+                    if (PLAYER_Static.LEONARD_BOSS == "boa")
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogo_Main[current_array_index];
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogue_StoryDriven[current_array_index];
+                        }
+                    }
+                }
+                else if (NOAH_BOSS)
+                {
+                    if (PLAYER_Static.NOAH_BOSS == "boa")
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogo_Main[current_array_index];
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < textos_NPCs.Length; i++)
+                        {
+                            textos_NPCs[i].text = dialogue_StoryDriven[current_array_index];
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < textos_NPCs.Length; i++)
+                    {
+                        textos_NPCs[i].text = dialogo_Main[current_array_index];
+                    }
                 }
             }
-            /*for (int i = 0; i < textos_NPCs.Length; i++)
-            {
-                textos_NPCs[i].text = dialogo_1[current_array_index];
-            }*/
+
 
             if (npc_balao_G_P)
             {
@@ -324,6 +422,8 @@ public class PLAYER_dialogue : MonoBehaviour
                 NPC_MM.enabled = false;
                 NPC_PG.enabled = true;
             }
+
+
         }
         //------------------------------------------------------------------------------------------------------------------------
         if (SEM_DIALOGO)

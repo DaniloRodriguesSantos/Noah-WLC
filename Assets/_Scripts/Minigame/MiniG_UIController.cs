@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class MiniG_UIController : MonoBehaviour {
-
+public class MiniG_UIController : MonoBehaviour
+{
+    public Canvas main_Canvas;
     public Text life_Indicator;
     public Text time_Indicator;
     public Text score_Indicator;
@@ -18,7 +19,7 @@ public class MiniG_UIController : MonoBehaviour {
     public MiniG_BossController miniGBossController_Script;
     public GameObject poolingEnemyController;
     public MiniG_EnemyController[] allEnemies;
-
+    private Camera2DFollow camera2DFollow_Script;
 
     // Menus
     [Space(10)]
@@ -34,10 +35,28 @@ public class MiniG_UIController : MonoBehaviour {
     public GameObject dieMenu_FirstTry;
     public GameObject dieMenu_SecondTry;
 
+    
+
+    // /////////////////////////////////////////////////////////////////////////////////         WESLEY
+    finalizar_DIA script_FinalizarDia;
+    // /////////////////////////////////////////////////////////////////////////////////         WESLEY
+
     private void Awake()
     {
         controls_Script = GameObject.Find("Player_MiniG").GetComponent<Controls>();
         minigController_Script = GameObject.Find("MiniG_Controller").GetComponent<MiniG_Controller>();
+
+        
+        
+        camera2DFollow_Script = GameObject.Find("Main Camera").GetComponent<Camera2DFollow>();
+        
+
+        if(GameObject.Find("_MainCanvas") != null)
+        {
+            script_FinalizarDia = GameObject.Find("_MainCanvas").GetComponent<finalizar_DIA>();
+        }
+
+
     }
 
     private void Start()
@@ -49,23 +68,20 @@ public class MiniG_UIController : MonoBehaviour {
         {
             wave_Indicator.gameObject.SetActive(false);
         }
-        if(minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Boss_MiniGame)
+        if (minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Boss_MiniGame)
         {
             victoryMenu.SetActive(false);
             dieMenu_FirstTry.SetActive(false);
             dieMenu_SecondTry.SetActive(false);
-            BossLife_Indicator.maxValue = miniGBossController_Script.boss_Life;
+            BossLife_Indicator.maxValue = miniGBossController_Script.boss_MaxLife;
             AttackCoolDown_Indicator.maxValue = GameConstants.PLAYER_ATTACK_COOLDOWN;
         }
-
-
-
-
     }
 
     // Update is called once per frame
-    void Update () {
-        if(minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Waves_MiniGame)
+    void Update()
+    {
+        if (minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Waves_MiniGame)
         {
             int seconds = (int)(minigController_Script.countdown % 60);
             time_Indicator.text = string.Format("Tempo: {0:00}", seconds);
@@ -89,21 +105,17 @@ public class MiniG_UIController : MonoBehaviour {
             AttackCoolDown_Indicator.value = controls_Script.attackCoolDownNumber;
         }
 
-        life_Indicator.text = "Vida: " + controls_Script.player_life.ToString();
+        life_Indicator.text = controls_Script.player_life.ToString();
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if(dieMenu.activeInHierarchy == false)
+            if (dieMenu.activeInHierarchy == false)
             {
                 PauseGame();
             }
         }
 
-        if (Input.GetKey(KeyCode.B))
-        {
-            PlayerPrefs.DeleteKey("canRetry");
-            print("The Key has been deleted");
-        }
-	}
+
+    }
 
     private void pauseTime()
     {
@@ -141,7 +153,7 @@ public class MiniG_UIController : MonoBehaviour {
 
     public void playerDied()
     {
-        if(minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Waves_MiniGame)
+        if (minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Waves_MiniGame)
         {
             dieMenu.SetActive(true);
             score_DieMenu_Indicator.text = "Pontuação: " + minigController_Script.score.ToString();
@@ -151,7 +163,7 @@ public class MiniG_UIController : MonoBehaviour {
 
         if (minigController_Script.MiniG_Type == MiniG_Controller.MiniG_State.Boss_MiniGame)
         {
-            if(PlayerPrefs.GetString("canRetry") == "false")
+            if (PlayerPrefs.GetString("canRetry") == "false")
             {
                 dieMenu_FirstTry.SetActive(true);
                 pauseTime();
@@ -165,6 +177,10 @@ public class MiniG_UIController : MonoBehaviour {
                 return;
             }
         }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// ////////////////////////////////////////////////////////////////         WESLEY
+        verificar_StoryDriven();
     }
 
     public void playerVictory()
@@ -172,17 +188,41 @@ public class MiniG_UIController : MonoBehaviour {
         victoryMenu.SetActive(true);
         score_VictoryMenu_Indicator.text = "Pontuação: " + minigController_Script.score.ToString();
         pauseTime();
+
+
+        
     }
+
+    void verificar_StoryDriven()
+    {
+        if (PlayerPrefs.GetString("canRetry") == "true")
+        {
+            PLAYER_Static.SAM_BOSS = "ruim";
+        }
+        else if (PlayerPrefs.GetString("canRetry") == "false")
+        {
+            PLAYER_Static.SAM_BOSS = "boa";
+        }
+        script_FinalizarDia.enabled = true;
+    }
+    //////////////////////////////////////////////////////////////// //////////////////////////////////////////////////////////////// ////////////////////////////////////////////////////////////////       WESLEY
 
     public void closeGame()
     {
+        camera2DFollow_Script.gameObject.transform.parent = null;
+        camera2DFollow_Script.changeCamera_ToPlayer();
+        main_Canvas.enabled = true;
         MiniGame.SetActive(false);
         retryGame_Waves();
         unPauseGame();
+        // //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////                    WESLEY
+        
     }
 
     public void closeGameAfterWinOrLose()
     {
+        camera2DFollow_Script.gameObject.transform.parent = null;
+        camera2DFollow_Script.changeCamera_ToPlayer();
         MiniGame.SetActive(false);
         unPauseGame();
         retryGame_Boss();
@@ -192,14 +232,18 @@ public class MiniG_UIController : MonoBehaviour {
             {
                 PlayerPrefs.SetString("canRetry", "true");
                 print("Hoje não");
-            } else if (PlayerPrefs.GetString("canRetry") == "true")
+            }
+            else if (PlayerPrefs.GetString("canRetry") == "true")
             {
                 PlayerPrefs.SetString("canRetry", "false");
                 print("Hoje sim");
             }
         }
-    }
 
+        //////////////////////////////////////////////////////////////// //////////////////////////////////////////////////////////////// ////////////////////////////////////////////////////////////////        WESLEY
+        verificar_StoryDriven();
+    }
+    
     public void retryGame_Waves()
     {
         // This Script
@@ -229,10 +273,11 @@ public class MiniG_UIController : MonoBehaviour {
     {
         // This Script
         unpauseTime();
-        if(dieMenu_SecondTry.activeSelf == true)
+        if (dieMenu_SecondTry.activeSelf == true)
         {
             dieMenu_SecondTry.SetActive(false);
-        } else if(victoryMenu.activeSelf == true)
+        }
+        else if (victoryMenu.activeSelf == true)
         {
             victoryMenu.SetActive(false);
         }

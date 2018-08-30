@@ -167,7 +167,7 @@ public class PensamentoController : MonoBehaviour
 
 
             StartCoroutine(DeactivateChoosePlatform(2f));
-            Estante.SetActive(false);
+            if (Estante != null) { Estante.SetActive(false); }
             scriptAudio_MainScript.aplicar_game_OST();
             isThinking = false;
             playerTrans.position = originalPos_Player;
@@ -177,7 +177,7 @@ public class PensamentoController : MonoBehaviour
             checkTrialLogger();
             if (entrouPensamento_Tipo2)
             {
-                checkResult_Pensamento_Tipo2();
+                //checkResult_Pensamento_Tipo2();
                 //GOController.liberarNPC = true;
                 entrouPensamento_Tipo2 = false;
             }
@@ -256,48 +256,24 @@ public class PensamentoController : MonoBehaviour
         position_EscolhaArray[puzzleInfo].parent.gameObject.SetActive(false);
     }
 
-    private void checkResult_Pensamento_Tipo1()
-    {
-        if (check_Counter == 1)
-        {
-            Debug.Log("Está no estado 1");
-        }
-        if (check_Counter == 2)
-        {
-            Debug.Log("Está no estado 2");
-        }
-        if (check_Counter == 3)
-        {
-            Debug.Log("Está no estado 3");
-        }
-        if (check_Counter > 0)
-        {
+    //private void checkResult_Pensamento_Tipo2()
+    //{
+    //    if (isPrologo)
+    //    {
+    //        if (tipo_resposta_Pesamento == "Resposta 1")
+    //        {
 
-        }
+    //        }
+    //        if (tipo_resposta_Pesamento == "Resposta 2")
+    //        {
 
-    }
+    //        }
+    //        if (tipo_resposta_Pesamento == "Resposta 3")
+    //        {
 
-    private void checkResult_Pensamento_Tipo2()
-    {
-        if (isPrologo)
-        {
-            if (tipo_resposta_Pesamento == "Resposta 1")
-            {
-                Debug.Log("Resposta 1");
-
-            }
-            if (tipo_resposta_Pesamento == "Resposta 2")
-            {
-                Debug.Log("Resposta 2");
-
-            }
-            if (tipo_resposta_Pesamento == "Resposta 3")
-            {
-                Debug.Log("Resposta 3");
-
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 
     private void checkTrialLogger()
     {

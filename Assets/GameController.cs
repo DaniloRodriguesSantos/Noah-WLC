@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
-	[SerializeField] private GameObject botao_Noah_J1;
-	[SerializeField] private GameObject ponte_Noah_J1;
 	[HideInInspector] public string interactable_State;
     private Transform playerTrans;
     #region Inputs
@@ -93,11 +91,6 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (botao_Noah_J1.activeSelf == false) {
-			ponte_Noah_J1.SetActive (true);
-		} else {
-			ponte_Noah_J1.SetActive (false);
-		}
 
 		Inputs ();
 		Prologo();

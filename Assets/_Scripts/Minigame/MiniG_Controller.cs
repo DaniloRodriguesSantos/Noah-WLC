@@ -66,6 +66,18 @@ public class MiniG_Controller : MonoBehaviour
         {
             countdown -= Time.deltaTime;
         }
+
+        if (Input.GetKey(KeyCode.B))
+        {
+            PlayerPrefs.SetString("canRetry", "true");
+            print("You can now play forever");
+        }
+
+        if (Input.GetKey(KeyCode.N))
+        {
+            PlayerPrefs.SetString("canRetry", "false");
+            print("You can no longer play again");
+        }
     }
 
     IEnumerator SpawnWave()

@@ -32,7 +32,15 @@ public class PLAYER_Teleporte : MonoBehaviour
         anin_imgPreta = GameObject.Find("Imagem Preta").GetComponent<Animator>();
         boxC = GetComponent<BoxCollider2D>();
     }
-   
+
+    private void Start()
+    {
+        if(anin_imgPreta.GetBool("alpha") == true)
+        {
+            anin_imgPreta.SetBool("alpha", false);
+        }
+    }
+
     void Update()
     {
         if (podeInteragir)

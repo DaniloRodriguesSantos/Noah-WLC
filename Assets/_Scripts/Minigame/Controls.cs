@@ -31,19 +31,29 @@ public class Controls : MonoBehaviour
 
     private void Start()
     {
-        
-        originalPos = transform.position;
+        player_life_Max = PLAYER_Static.player_life_Max;
+        player_agility = PLAYER_Static.player_agility;
+        ////////////////////////////////////////////////////WESLEY//
+
         player_life = player_life_Max;
+        ////////////////////////////////////////////////////WESLEY//
+
+        originalPos = transform.position;
+        
         attackCoolDownNumber = GameConstants.PLAYER_ATTACK_COOLDOWN;
         if(playerAttackHitbox != null)
         {
             playerAttackHitbox.SetActive(false);
         }
-
     }
 
     void Update()
     {
+
+
+        player_life_Max = PLAYER_Static.player_life_Max;
+        player_agility = PLAYER_Static.player_agility;
+
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             moveLeft = true;
@@ -113,8 +123,8 @@ public class Controls : MonoBehaviour
             }
             if (player_life == 0)
             {
-                gameObject.SetActive(false);
                 miniG_Canvas.playerDied();
+                gameObject.SetActive(false);
             }
         }
     }

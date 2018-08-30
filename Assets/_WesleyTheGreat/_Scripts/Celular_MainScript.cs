@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Celular_MainScript : MonoBehaviour
 {
+    public GameObject prefab_MiniGame;
+    public Canvas Main_Canvas;
     PensamentoController script_PensamentoController;
     Audio_MainScript scriptAudio_MainScript;
     Platformer2DUserControl script_Platformer2DUserControl;
@@ -91,6 +93,9 @@ public class Celular_MainScript : MonoBehaviour
     Image noahMercado;
     Image noahPapelaria;
     public GameObject relogio_Boladao;
+
+    // Alterações Danilo
+    private Camera2DFollow camera2DFollow_Script;
     // Use this for initialization
     void Awake()
     {
@@ -110,6 +115,9 @@ public class Celular_MainScript : MonoBehaviour
         array_OBJs_Diario = muzzle_Inicial_Diario.GetComponentsInChildren<Image>();
 
         anin = celular.GetComponent<Animator>();
+
+        // Alterações Danilo
+        camera2DFollow_Script = GameObject.Find("Main Camera").GetComponent<Camera2DFollow>();
     }
     private void Start()
     {
@@ -327,12 +335,16 @@ public class Celular_MainScript : MonoBehaviour
 
     public void irGame()
     {
-        anin.SetBool("virar", true);
+        /*anin.SetBool("virar", true);
         tela_Principal.SetActive(false);
         tela_Jogo.SetActive(true);
         tela_GPS.SetActive(false);
         tela_Zapzap.SetActive(false);
-        tela_Diario.SetActive(false);
+        tela_Diario.SetActive(false);*/
+
+        prefab_MiniGame.SetActive(true);
+        camera2DFollow_Script.changeCamera_MiniGWaves();
+        Main_Canvas.enabled = false;
     }
     public void irGPS()
     {

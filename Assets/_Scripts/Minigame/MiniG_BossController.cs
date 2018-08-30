@@ -5,7 +5,7 @@ using UnityEngine;
 public class MiniG_BossController : MonoBehaviour {
 
     public float boss_Speed;
-    [HideInInspector] public int boss_Life;
+    public int boss_Life;
     public int boss_MaxLife;
     public int boss_MaxScore;
     private bool moveLeft = true;
