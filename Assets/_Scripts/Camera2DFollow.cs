@@ -4,125 +4,30 @@ using UnityEngine;
 
 public class Camera2DFollow : MonoBehaviour
 {
-	public Transform target;
-	public float damping = 1;
-	public float lookAheadFactor = 3;
-	public float lookAheadReturnSpeed = 0.5f;
-	public float lookAheadMoveThreshold = 0.1f;
-
-	private float m_OffsetZ;
-	private Vector3 m_LastTargetPosition;
-	private Vector3 m_CurrentVelocity;
-	private Vector3 m_LookAheadPos;
-
+    #region General Variables
+    private Vector3 targetPos;
+    private Transform followTarget_Player;
+    private float moveSpeed = 2f;
+    private Transform trans;
     private Camera main_Camera;
-    #region Camera Boundaries
+    //public Camera mapCamera;
+    #endregion
 
+    #region Camera Boundaries
     public bool bounds;
     private bool followTarget = true;
-    public Camera mapCamera;
-    [Space(10)]
-    [Header("BGs")]
-    public GameObject Papelaria_BG;
-    public GameObject Quarto_Noah_BG;
-    public GameObject SalaDeEstar_Noah_BG;
-    public GameObject Portaria_Manha_BG;
-    public GameObject Portaria_Tarde_BG;
-    public GameObject PortariaMetro_BG;
-    public GameObject MetroEscola_BG;
-    public GameObject PapelariaMercado_BG;
-    public GameObject Escola_BG;
-    public GameObject Refeitorio_BG;
-    public GameObject SalaDeAula_BG;
-    public GameObject Pensamento_Tipo2_BG;
-
-    [Space(10)]
-    public GameObject ParteCima_MetroEscola_BG;
-    public GameObject ParteBaixo_MetroEscola_BG;
-    [Space(10)]
-    public GameObject ParteCima_PortariaMetro_BG;
-    public GameObject ParteBaixo_PortariaMetro_BG;
-    [Space(10)]
-    public GameObject Nivel1_PapelariaMercado_BG;
-    public GameObject Nivel2_PapelariaMercado_BG;
-    public GameObject Nivel3_PapelariaMercado_BG;
-
-    [Space(10)]
-    [Header("Papelaria")]
-    public Vector3 Papelaria_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Papelaria_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Quarto Noah")]
-    public Vector3 QuartoNoah_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 QuartoNoah_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Sala de Estar")]
-    public Vector3 SalaDeEstar_Noah_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 SalaDeEstar_Noah__maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Portaria")]
-    public Vector3 Portaria_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Portaria_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Escola")]
-    public Vector3 Escola_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Escola_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Refeitorio")]
-    public Vector3 Refeitorio_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Refeitorio_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Sala de Aula")]
-    public Vector3 SalaDeAula_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 SalaDeAula_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    [Header("Pensamento Tipo 2")]
-    public Vector3 Pensamento_Tipo2_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Pensamento_Tipo2_maxCam_Pos = new Vector3(0, 0, -10);
-
-    [Space(10)]
-    [Header("Metro Escola")]
-    public Vector3 MetroEscola_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 MetroEscola_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    public Vector3 ParteCima_MetroEscola_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 ParteCima_MetroEscola_maxCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 ParteBaixo_MetroEscola_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 ParteBaixo_MetroEscola_maxCam_Pos = new Vector3(0, 0, -10);
-
-    [Space(10)]
-    [Header("Portaria Metro")]
-    public Vector3 PortariaMetro_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 PortariaMetro_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    public Vector3 ParteCima_PortariaMetro_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 ParteCima_PortariaMetro_maxCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 ParteBaixo_PortariaMetro_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 ParteBaixo_PortariaMetro_maxCam_Pos = new Vector3(0, 0, -10);
-
-    [Space(10)]
-    [Header("Papelaria Mercado")]
-    public Vector3 PapelariaMercado_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 PapelariaMercado_maxCam_Pos = new Vector3(0, 0, -10);
-    [Space(10)]
-    public Vector3 Nivel1_PapelariaMercado_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Nivel1_PapelariaMercado_maxCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Nivel2_PapelariaMercado_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Nivel2_PapelariaMercado_maxCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Nivel3_PapelariaMercado_minCam_Pos = new Vector3(0, 0, -10);
-    public Vector3 Nivel3_PapelariaMercado_maxCam_Pos = new Vector3(0, 0, -10);
+    [HideInInspector] public Vector3 minCameraPos;
+    [HideInInspector] public Vector3 maxCameraPos;
+    private PlatformerCharacter2D platformerCharacter2D_Script;
+    [HideInInspector] public float halfHeight;
+    [HideInInspector] public float halfWidth;
+    [HideInInspector] public float clampedX;
+    [HideInInspector] public float clampedY;
 
     [Space(10)]
     [Header("Minigames")]
     public GameObject miniG_Waves_BG;
     public GameObject miniG_Boss_BG;
-
-
-    [HideInInspector] public Vector3 minCameraPos;
-    [HideInInspector] public Vector3 maxCameraPos;
-    private Transform trans;
-
-    private PlatformerCharacter2D platformerCharacter2D_Script;
     #endregion
 
     void Awake ()
@@ -130,13 +35,12 @@ public class Camera2DFollow : MonoBehaviour
 		trans = GetComponent<Transform> ();
         main_Camera = GetComponent<Camera>();
         platformerCharacter2D_Script = GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformerCharacter2D>();
+        followTarget_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
 	// Use this for initialization
 	private void Start ()
 	{
-		m_LastTargetPosition = target.position;
-		m_OffsetZ = (transform.position - target.position).z;
 		trans.parent = null;
 	}
 
@@ -146,41 +50,15 @@ public class Camera2DFollow : MonoBehaviour
 	{
         if (followTarget)
         {
-            // only update lookahead pos if accelerating or changed direction
-            float xMoveDelta = (target.position - m_LastTargetPosition).x;
-
-            bool updateLookAheadTarget = Mathf.Abs(xMoveDelta) > lookAheadMoveThreshold;
-
-            if (updateLookAheadTarget)
-            {
-                m_LookAheadPos = lookAheadFactor * Vector3.right * Mathf.Sign(xMoveDelta);
-            }
-            else
-            {
-                m_LookAheadPos = Vector3.MoveTowards(m_LookAheadPos, Vector3.zero, Time.deltaTime * lookAheadReturnSpeed);
-            }
-
-            Vector3 aheadTargetPos = target.position + m_LookAheadPos + Vector3.forward * m_OffsetZ;
-            Vector3 newPos = Vector3.SmoothDamp(trans.position, aheadTargetPos, ref m_CurrentVelocity, damping);
-
-            trans.position = newPos;
-
-            m_LastTargetPosition = target.position;
+            targetPos = new Vector3(followTarget_Player.position.x, followTarget_Player.position.y, trans.position.z);
+            trans.position = Vector3.Lerp(trans.position, targetPos, moveSpeed * Time.deltaTime);
         }
 
-		if (bounds) {
-			trans.position = new Vector3 (Mathf.Clamp (trans.position.x, minCameraPos.x, maxCameraPos.x), Mathf.Clamp (trans.position.y, minCameraPos.y, maxCameraPos.y), -10f); 
-		}
-
-        if (Input.GetKeyDown(KeyCode.H))
+        if (bounds)
         {
-            changeCamera_MiniGBoss();
-        }
-
-        if (Input.GetKey(KeyCode.B))
-        {
-            PlayerPrefs.SetString("canRetry", "true");
-            print("You can now play forever");
+            clampedX = Mathf.Clamp(trans.position.x, minCameraPos.x + halfWidth, maxCameraPos.x - halfWidth);
+            clampedY = Mathf.Clamp(trans.position.y, minCameraPos.y + halfHeight, maxCameraPos.y - halfHeight);
+            trans.position = new Vector3(clampedX, clampedY, trans.position.z);
         }
     }
 

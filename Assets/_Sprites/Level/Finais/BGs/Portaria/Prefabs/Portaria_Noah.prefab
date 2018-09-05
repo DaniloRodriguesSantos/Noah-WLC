@@ -68,7 +68,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4520336357939502}
   - component: {fileID: 212844985507427594}
-  - component: {fileID: 61033451362964230}
   m_Layer: 0
   m_Name: Portaria_Noah
   m_TagString: Untagged
@@ -192,31 +191,6 @@ Transform:
   m_Father: {fileID: 4520336357939502}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61033451362964230
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1316998351413052}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 38.63, y: 10.8}
-    newSize: {x: 10.61, y: 5.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 38.63, y: 10.8}
-  m_EdgeRadius: 0
 --- !u!61 &61112123917543738
 BoxCollider2D:
   m_ObjectHideFlags: 1

@@ -20456,63 +20456,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!1 &397583822
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1070182260486788, guid: 82fb134725551924aaf65a0179a0dc53,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 397583823}
-  - component: {fileID: 397583824}
-  m_Layer: 0
-  m_Name: ParteCima_MetroEscola_BG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &397583823
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4042212164449692, guid: 82fb134725551924aaf65a0179a0dc53,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 397583822}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -53.71, y: 5.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 552817936}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &397583824
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 61256315043786866, guid: 82fb134725551924aaf65a0179a0dc53,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 397583822}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 53.75837, y: 0.62765276}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 108.51674, y: 5.897559}
-  m_EdgeRadius: 0
 --- !u!1 &397811880
 GameObject:
   m_ObjectHideFlags: 0
@@ -28361,8 +28304,6 @@ Transform:
   m_LocalPosition: {x: -4.424716, y: -1.5387106, z: 0}
   m_LocalScale: {x: 0.33328453, y: 0.33328453, z: 0.33328453}
   m_Children:
-  - {fileID: 397583823}
-  - {fileID: 737671802}
   - {fileID: 1793990438}
   m_Father: {fileID: 94962372}
   m_RootOrder: 1
@@ -37361,63 +37302,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 734253153}
---- !u!1 &737671801
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 1110524358783644, guid: 82fb134725551924aaf65a0179a0dc53,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 737671802}
-  - component: {fileID: 737671803}
-  m_Layer: 0
-  m_Name: ParteBaixo_MetroEscola_BG
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &737671802
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 4353586832884064, guid: 82fb134725551924aaf65a0179a0dc53,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 737671801}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.709995, y: -0.36, z: 0}
-  m_LocalScale: {x: 0.99999976, y: 0.99999976, z: 0.99999976}
-  m_Children: []
-  m_Father: {fileID: 552817936}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &737671803
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 61777832232160980, guid: 82fb134725551924aaf65a0179a0dc53,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 737671801}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 53.75837, y: -6.4775696}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 108.51674, y: 20.108002}
-  m_EdgeRadius: 0
 --- !u!1 &738250530
 GameObject:
   m_ObjectHideFlags: 0
@@ -37554,11 +37438,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 739270077}
---- !u!1 &739616233 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1412307216600610, guid: fcddbf7263c19d24e98f7747cb072b9f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1059419591}
 --- !u!4 &739616234 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4804639298932390, guid: fcddbf7263c19d24e98f7747cb072b9f,
@@ -39589,11 +39468,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 793588058}
---- !u!1 &800648627 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1934167596587760, guid: e36e47c67cd4f414997bc7374fd36348,
-    type: 2}
-  m_PrefabInternal: {fileID: 1317676464}
 --- !u!4 &800648628 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4636114375381230, guid: e36e47c67cd4f414997bc7374fd36348,
@@ -48466,11 +48340,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 980204549}
---- !u!1 &982418883 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1240915622049124, guid: e6568c00c63012148869c97cf4e78c73,
-    type: 2}
-  m_PrefabInternal: {fileID: 375336199}
 --- !u!4 &982418884 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4097784195564880, guid: e6568c00c63012148869c97cf4e78c73,
@@ -56888,6 +56757,53 @@ Transform:
   m_Father: {fileID: 1701988641}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1172244569
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1994866011}
+    m_Modifications:
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &1172244570 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1172244569}
 --- !u!1 &1174866335
 GameObject:
   m_ObjectHideFlags: 0
@@ -72527,11 +72443,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4520336357939502, guid: 516225a789d127e4ba1bc27fb0d7376f,
     type: 2}
   m_PrefabInternal: {fileID: 1511845574}
---- !u!1 &1511845576 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1316998351413052, guid: 516225a789d127e4ba1bc27fb0d7376f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1511845574}
 --- !u!1001 &1512413426
 Prefab:
   m_ObjectHideFlags: 0
@@ -72808,11 +72719,6 @@ Prefab:
 --- !u!4 &1518129628 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4125414524685558, guid: daedf26f1ef83d04bab667a9e663c820,
-    type: 2}
-  m_PrefabInternal: {fileID: 1518129627}
---- !u!1 &1518129629 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1653898112449304, guid: daedf26f1ef83d04bab667a9e663c820,
     type: 2}
   m_PrefabInternal: {fileID: 1518129627}
 --- !u!1 &1520431777
@@ -84126,72 +84032,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c87509c8315a26448eeae15c310a036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 452206301}
-  damping: 0.3
-  lookAheadFactor: 0.3
-  lookAheadReturnSpeed: 0.2
-  lookAheadMoveThreshold: 0.1
   bounds: 1
-  mapCamera: {fileID: 0}
-  Papelaria_BG: {fileID: 0}
-  Quarto_Noah_BG: {fileID: 2033831847}
-  SalaDeEstar_Noah_BG: {fileID: 1518129629}
-  Portaria_Manha_BG: {fileID: 1511845576}
-  Portaria_Tarde_BG: {fileID: 1511845576}
-  PortariaMetro_BG: {fileID: 0}
-  MetroEscola_BG: {fileID: 552817935}
-  PapelariaMercado_BG: {fileID: 0}
-  Escola_BG: {fileID: 800648627}
-  Refeitorio_BG: {fileID: 982418883}
-  SalaDeAula_BG: {fileID: 739616233}
-  Pensamento_Tipo2_BG: {fileID: 0}
-  ParteCima_MetroEscola_BG: {fileID: 397583822}
-  ParteBaixo_MetroEscola_BG: {fileID: 737671801}
-  ParteCima_PortariaMetro_BG: {fileID: 0}
-  ParteBaixo_PortariaMetro_BG: {fileID: 0}
-  Nivel1_PapelariaMercado_BG: {fileID: 0}
-  Nivel2_PapelariaMercado_BG: {fileID: 0}
-  Nivel3_PapelariaMercado_BG: {fileID: 0}
-  Papelaria_minCam_Pos: {x: -6.13, y: 0.36, z: -10}
-  Papelaria_maxCam_Pos: {x: -6.13, y: 0.36, z: -10}
-  QuartoNoah_minCam_Pos: {x: 14.89, y: 1.36, z: -10}
-  QuartoNoah_maxCam_Pos: {x: 14.89, y: 1.36, z: -10}
-  SalaDeEstar_Noah_minCam_Pos: {x: 32.67, y: 2.23, z: -10}
-  SalaDeEstar_Noah__maxCam_Pos: {x: 40.46, y: 2.23, z: -10}
-  Portaria_minCam_Pos: {x: 75.37, y: 2.23, z: -10}
-  Portaria_maxCam_Pos: {x: 94.92, y: 2.23, z: -10}
-  Escola_minCam_Pos: {x: 342.48, y: -19.65, z: -10}
-  Escola_maxCam_Pos: {x: 435.88, y: -19.65, z: -10}
-  Refeitorio_minCam_Pos: {x: 453.73, y: -19.67, z: -10}
-  Refeitorio_maxCam_Pos: {x: 493.1, y: -19.67, z: -10}
-  SalaDeAula_minCam_Pos: {x: 392.5, y: 29.53, z: -10}
-  SalaDeAula_maxCam_Pos: {x: 402.76, y: 29.53, z: -10}
-  Pensamento_Tipo2_minCam_Pos: {x: -11.78, y: -27.5, z: -10}
-  Pensamento_Tipo2_maxCam_Pos: {x: -2.16, y: -22.13, z: -10}
-  MetroEscola_minCam_Pos: {x: 235.36, y: -40.06, z: -10}
-  MetroEscola_maxCam_Pos: {x: 323.07, y: -19.50784, z: -10}
-  ParteCima_MetroEscola_minCam_Pos: {x: 235.47, y: -19.50784, z: -10}
-  ParteCima_MetroEscola_maxCam_Pos: {x: 323.07, y: -19.50784, z: -10}
-  ParteBaixo_MetroEscola_minCam_Pos: {x: 235.36, y: -40.06, z: -10}
-  ParteBaixo_MetroEscola_maxCam_Pos: {x: 323.07, y: -40.06, z: -10}
-  PortariaMetro_minCam_Pos: {x: 129.23, y: -17.99, z: -10}
-  PortariaMetro_maxCam_Pos: {x: 212.51, y: 2.47, z: -10}
-  ParteCima_PortariaMetro_minCam_Pos: {x: 126.99, y: 1.21, z: -10}
-  ParteCima_PortariaMetro_maxCam_Pos: {x: 214.64, y: 1.21, z: -10}
-  ParteBaixo_PortariaMetro_minCam_Pos: {x: 126.97, y: -19.22, z: -10}
-  ParteBaixo_PortariaMetro_maxCam_Pos: {x: 214.67, y: -19.22, z: -10}
-  PapelariaMercado_minCam_Pos: {x: 229.72, y: -134.76, z: -10}
-  PapelariaMercado_maxCam_Pos: {x: 317.46, y: -93.42, z: -10}
-  Nivel1_PapelariaMercado_minCam_Pos: {x: 229.72, y: -134.76, z: -10}
-  Nivel1_PapelariaMercado_maxCam_Pos: {x: 317.46, y: -134.76, z: -10}
-  Nivel2_PapelariaMercado_minCam_Pos: {x: 229.72, y: -114.07, z: -10}
-  Nivel2_PapelariaMercado_maxCam_Pos: {x: 317.46, y: -114.07, z: -10}
-  Nivel3_PapelariaMercado_minCam_Pos: {x: 229.72, y: -93.42, z: -10}
-  Nivel3_PapelariaMercado_maxCam_Pos: {x: 317.46, y: -93.42, z: -10}
-  miniG_Waves_BG: {fileID: 425468435}
-  miniG_Boss_BG: {fileID: 344870765}
   minCameraPos: {x: 0, y: -0.38, z: -10}
   maxCameraPos: {x: 1.31, y: -0.38, z: -10}
+  halfHeight: 0
+  halfWidth: 0
+  clampedX: 0
+  clampedY: 0
+  miniG_Waves_BG: {fileID: 425468435}
+  miniG_Boss_BG: {fileID: 344870765}
 --- !u!82 &1766633300
 AudioSource:
   m_ObjectHideFlags: 0
@@ -91097,12 +90946,12 @@ Prefab:
     - target: {fileID: 224756103503873106, guid: 0288e741ef550be488d57d614980e6c1,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224789239959589498, guid: 0288e741ef550be488d57d614980e6c1,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1814088825777570, guid: 0288e741ef550be488d57d614980e6c1, type: 2}
       propertyPath: m_IsActive
@@ -97700,6 +97549,7 @@ Transform:
   m_Children:
   - {fileID: 821266805}
   - {fileID: 1492872492}
+  - {fileID: 1172244570}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -99514,7 +99364,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2033831848}
   - component: {fileID: 2033831849}
-  - component: {fileID: 2033831850}
   m_Layer: 0
   m_Name: QuartoNoah_BG
   m_TagString: Untagged
@@ -99580,31 +99429,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!61 &2033831850
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2033831847}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.2, y: 10.8}
-    newSize: {x: 10.61, y: 5.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 19.2, y: 10.8}
-  m_EdgeRadius: 0
 --- !u!1 &2035578041
 GameObject:
   m_ObjectHideFlags: 0

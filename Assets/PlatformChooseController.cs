@@ -62,8 +62,11 @@ public class PlatformChooseController : MonoBehaviour
             this.objChooseImg.color = new Color(1f, 1f, 1f, 0);
         }
 
-        objBreakIce_Sprite.SetActive(true);
-        objBreakIce_Anim.SetActive(false);
+        if (isBreakIce)
+        {
+            objBreakIce_Sprite.SetActive(true);
+            objBreakIce_Anim.SetActive(false);
+        }
     }
 
     private void FixedUpdate()

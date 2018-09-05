@@ -295,6 +295,70 @@ public class PlatformerCharacter2D : MonoBehaviour
                 StartCoroutine(ReturnDayTimeChangeOBJ(10, other.gameObject));
             }
         }
+
+        #region Camera Bounds
+        if (changeCameraSize)
+        {
+            // Camera Size = 5f
+            if (other.gameObject.transform.name == "Papelaria_BG_ForCamera" ||
+                other.gameObject.transform.name == "QuartoNoah_BG_ForCamera" ||
+                other.gameObject.transform.name == "SalaNoah_BG_ForCamera" ||
+                other.gameObject.transform.name == "Escola_BG_ForCamera" ||
+                other.gameObject.transform.name == "SalaAula_BG_ForCamera" ||
+                other.gameObject.transform.name == "Refeitorio_BG_ForCamera")
+            {
+                BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
+                camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
+                camera2DFollow_Script.maxCameraPos = boxBounds.bounds.max;
+                camera2DFollow_Script.halfHeight = mainCamera.orthographicSize;
+                camera2DFollow_Script.halfWidth = camera2DFollow_Script.halfHeight * Screen.width / Screen.height;
+                mainCamera.orthographicSize = 5f;
+            }
+            //-----------------
+
+            if (other.gameObject.transform.name == "PortariaNoah_BG_ForCamera")
+            {
+                BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
+                camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
+                camera2DFollow_Script.maxCameraPos = boxBounds.bounds.max;
+                camera2DFollow_Script.halfHeight = mainCamera.orthographicSize;
+                camera2DFollow_Script.halfWidth = camera2DFollow_Script.halfHeight * Screen.width / Screen.height;
+                mainCamera.orthographicSize = 5.36f;
+            }
+
+            // Camera Size = 5.83f
+            if (other.gameObject.transform.name == "MetroEscola_BG_ForCamera" ||
+                other.gameObject.transform.name == "PapelariaMercado_BG_ForCamera")
+            {
+                BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
+                camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
+                camera2DFollow_Script.maxCameraPos = boxBounds.bounds.max;
+                camera2DFollow_Script.halfHeight = mainCamera.orthographicSize;
+                camera2DFollow_Script.halfWidth = camera2DFollow_Script.halfHeight * Screen.width / Screen.height;
+                mainCamera.orthographicSize = 5.83f;
+            }
+
+            if (other.gameObject.transform.CompareTag("PensamentoEscolha"))
+            {
+                BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
+                camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
+                camera2DFollow_Script.maxCameraPos = boxBounds.bounds.max;
+                camera2DFollow_Script.halfHeight = mainCamera.orthographicSize;
+                camera2DFollow_Script.halfWidth = camera2DFollow_Script.halfHeight * Screen.width / Screen.height;
+                mainCamera.orthographicSize = 7.05f;
+            }
+            //
+
+            //if (other.gameObject.transform.name == "PapelariaMercado_BG_ForCamera")
+            //{
+            //    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Nivel3_PapelariaMercado_minCam_Pos;
+            //    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Nivel3_PapelariaMercado_maxCam_Pos;
+            //    mainCamera.orthographicSize = 5.83f;
+            //    cityStateInfo = "PapelariaMercado";
+            //}
+
+        }
+        #endregion
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -324,172 +388,6 @@ public class PlatformerCharacter2D : MonoBehaviour
         }
 
 
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        //if (other.gameObject.tag == "ThinkPlatforms_Tipo2")
-        //{
-        //    if (other.gameObject.GetComponent<PensamentoNumberInfo>() != null)
-        //    {
-        //        PensamentoNumberInfo pensamementoNumber_script = other.gameObject.GetComponent<PensamentoNumberInfo>();
-        //        if (Input.GetKeyDown(KeyCode.E))
-        //        {
-        //            //if (pensamementoNumber_script.gameStage_Info == "isPrologo")
-        //            //{
-        //            //    GOController.Atendente_Obj.SetActive(true);
-        //            //}
-        //            //pensamentoController_Script.voltaPosicao = true;
-        //        }
-        //    }
-        //}
-
-        if (changeCameraSize)
-        {
-            Debug.Log("Nisu");
-            #region Camera Bounds
-            if (camera2DFollow_Script.Papelaria_BG != null)
-            {
-                Debug.Log("Esta entrando no Bounds da papelaria");
-                if (other.gameObject.transform.name == camera2DFollow_Script.Papelaria_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Papelaria_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Papelaria_maxCam_Pos;
-                }
-            }
-
-            if (other.gameObject.transform.CompareTag("PensamentoEscolha"))
-            {
-                camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Pensamento_Tipo2_minCam_Pos;
-                camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Pensamento_Tipo2_maxCam_Pos;
-                mainCamera.orthographicSize = 7.05f;
-            }
-
-            if(camera2DFollow_Script.Quarto_Noah_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.Quarto_Noah_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.QuartoNoah_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.QuartoNoah_maxCam_Pos;
-                    mainCamera.orthographicSize = 5f;
-                }
-            }
-            if(camera2DFollow_Script.SalaDeEstar_Noah_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.SalaDeEstar_Noah_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.SalaDeEstar_Noah_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.SalaDeEstar_Noah__maxCam_Pos;
-                    mainCamera.orthographicSize = 5f;
-                }
-            }
-
-            if(camera2DFollow_Script.Portaria_Manha_BG != null || camera2DFollow_Script.Portaria_Tarde_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.Portaria_Manha_BG.name || other.gameObject.transform.name == camera2DFollow_Script.Portaria_Tarde_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Portaria_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Portaria_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5.36f;
-                }
-            }
-
-            if(camera2DFollow_Script.ParteBaixo_MetroEscola_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.ParteBaixo_MetroEscola_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.ParteBaixo_MetroEscola_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.ParteBaixo_MetroEscola_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5.83f;
-                    cityStateInfo = "MetroEscola";
-                }
-            }
-
-            if(camera2DFollow_Script.ParteCima_MetroEscola_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.ParteCima_MetroEscola_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.ParteCima_MetroEscola_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.ParteCima_MetroEscola_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5.83f;
-                    cityStateInfo = "MetroEscola";
-
-                }
-            }
-
-
-            if (SceneManager.GetActiveScene().name == "Dia_2" || SceneManager.GetActiveScene().name == "Dia_3")
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.Nivel1_PapelariaMercado_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Nivel1_PapelariaMercado_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Nivel1_PapelariaMercado_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5.83f;
-                    cityStateInfo = "PapelariaMercado";
-
-                }
-
-                if (other.gameObject.transform.name == camera2DFollow_Script.Nivel2_PapelariaMercado_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Nivel2_PapelariaMercado_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Nivel2_PapelariaMercado_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5.83f;
-                    cityStateInfo = "PapelariaMercado";
-
-                }
-
-                if (other.gameObject.transform.name == camera2DFollow_Script.Nivel3_PapelariaMercado_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Nivel3_PapelariaMercado_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Nivel3_PapelariaMercado_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5.83f;
-                    cityStateInfo = "PapelariaMercado";
-
-                }
-            }
-
-            if(camera2DFollow_Script.Escola_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.Escola_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Escola_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Escola_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5f;
-                }
-            }
-
-            if(camera2DFollow_Script.Refeitorio_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.Refeitorio_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.Refeitorio_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.Refeitorio_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5f;
-
-                }
-            }
-
-            if(camera2DFollow_Script.SalaDeAula_BG != null)
-            {
-                if (other.gameObject.transform.name == camera2DFollow_Script.SalaDeAula_BG.name)
-                {
-                    camera2DFollow_Script.minCameraPos = camera2DFollow_Script.SalaDeAula_minCam_Pos;
-                    camera2DFollow_Script.maxCameraPos = camera2DFollow_Script.SalaDeAula_maxCam_Pos;
-
-                    mainCamera.orthographicSize = 5f;
-                }
-            }
-
-            #endregion
-        }
     }
 
     private IEnumerator ReturnDayTimeChangeOBJ(float seconds, GameObject dayTimeChangeOBJ)

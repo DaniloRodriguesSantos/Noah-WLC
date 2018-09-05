@@ -2612,6 +2612,11 @@ Transform:
   m_Father: {fileID: 977849681}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &110341291 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 881013578}
 --- !u!1 &121788429
 GameObject:
   m_ObjectHideFlags: 0
@@ -15538,6 +15543,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dbb84592ae3804c4fb3018ae06f7e3bd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &881013578
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1994866011}
+    m_Modifications:
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4093011047640572, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 543b76db3cd40e140a5283c293a47f3f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &888392138
 GameObject:
   m_ObjectHideFlags: 0
@@ -27352,72 +27399,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c87509c8315a26448eeae15c310a036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 452206301}
-  damping: 0.3
-  lookAheadFactor: 0.3
-  lookAheadReturnSpeed: 0.2
-  lookAheadMoveThreshold: 0.1
+  moveSpeed: 2
   bounds: 1
-  mapCamera: {fileID: 0}
-  Papelaria_BG: {fileID: 2123362839}
-  Quarto_Noah_BG: {fileID: 0}
-  SalaDeEstar_Noah_BG: {fileID: 1987843456}
-  Portaria_Manha_BG: {fileID: 0}
-  Portaria_Tarde_BG: {fileID: 0}
-  PortariaMetro_BG: {fileID: 0}
-  MetroEscola_BG: {fileID: 0}
-  PapelariaMercado_BG: {fileID: 0}
-  Escola_BG: {fileID: 902528136}
-  Refeitorio_BG: {fileID: 0}
-  SalaDeAula_BG: {fileID: 232547366}
-  Pensamento_Tipo2_BG: {fileID: 0}
-  ParteCima_MetroEscola_BG: {fileID: 0}
-  ParteBaixo_MetroEscola_BG: {fileID: 0}
-  ParteCima_PortariaMetro_BG: {fileID: 0}
-  ParteBaixo_PortariaMetro_BG: {fileID: 0}
-  Nivel1_PapelariaMercado_BG: {fileID: 0}
-  Nivel2_PapelariaMercado_BG: {fileID: 0}
-  Nivel3_PapelariaMercado_BG: {fileID: 0}
-  Papelaria_minCam_Pos: {x: -6.13, y: 0.36, z: -10}
-  Papelaria_maxCam_Pos: {x: -6.13, y: 0.36, z: -10}
-  QuartoNoah_minCam_Pos: {x: 14.89, y: 0.36, z: -10}
-  QuartoNoah_maxCam_Pos: {x: 14.89, y: 0.36, z: -10}
-  SalaDeEstar_Noah_minCam_Pos: {x: 32.63, y: 0.36, z: -10}
-  SalaDeEstar_Noah__maxCam_Pos: {x: 39.29, y: 0.36, z: -10}
-  Portaria_minCam_Pos: {x: 65.87, y: 2.18, z: -10}
-  Portaria_maxCam_Pos: {x: 104.11, y: 2.18, z: -10}
-  Escola_minCam_Pos: {x: 166.93, y: 1.37, z: -10}
-  Escola_maxCam_Pos: {x: 206.25, y: 1.37, z: -10}
-  Refeitorio_minCam_Pos: {x: 0, y: 0, z: -10}
-  Refeitorio_maxCam_Pos: {x: 0, y: 0, z: -10}
-  SalaDeAula_minCam_Pos: {x: 200.04, y: 12.48, z: -10}
-  SalaDeAula_maxCam_Pos: {x: 212.51, y: 12.48, z: -10}
-  Pensamento_Tipo2_minCam_Pos: {x: -7, y: -24.81, z: -10}
-  Pensamento_Tipo2_maxCam_Pos: {x: -7, y: -24.81, z: -10}
-  MetroEscola_minCam_Pos: {x: 0, y: 0, z: -10}
-  MetroEscola_maxCam_Pos: {x: 0, y: 0, z: -10}
-  ParteCima_MetroEscola_minCam_Pos: {x: 0, y: 0, z: -10}
-  ParteCima_MetroEscola_maxCam_Pos: {x: 0, y: 0, z: -10}
-  ParteBaixo_MetroEscola_minCam_Pos: {x: 0, y: 0, z: -10}
-  ParteBaixo_MetroEscola_maxCam_Pos: {x: 0, y: 0, z: -10}
-  PortariaMetro_minCam_Pos: {x: 0, y: 0, z: -10}
-  PortariaMetro_maxCam_Pos: {x: 0, y: 0, z: -10}
-  ParteCima_PortariaMetro_minCam_Pos: {x: 0, y: 0, z: -10}
-  ParteCima_PortariaMetro_maxCam_Pos: {x: 0, y: 0, z: -10}
-  ParteBaixo_PortariaMetro_minCam_Pos: {x: 0, y: 0, z: -10}
-  ParteBaixo_PortariaMetro_maxCam_Pos: {x: 0, y: 0, z: -10}
-  PapelariaMercado_minCam_Pos: {x: 0, y: 0, z: -10}
-  PapelariaMercado_maxCam_Pos: {x: 0, y: 0, z: -10}
-  Nivel1_PapelariaMercado_minCam_Pos: {x: 0, y: 0, z: -10}
-  Nivel1_PapelariaMercado_maxCam_Pos: {x: 0, y: 0, z: -10}
-  Nivel2_PapelariaMercado_minCam_Pos: {x: 0, y: 0, z: -10}
-  Nivel2_PapelariaMercado_maxCam_Pos: {x: 0, y: 0, z: -10}
-  Nivel3_PapelariaMercado_minCam_Pos: {x: 0, y: 0, z: -10}
-  Nivel3_PapelariaMercado_maxCam_Pos: {x: 0, y: 0, z: -10}
-  miniG_Waves_BG: {fileID: 0}
-  miniG_Boss_BG: {fileID: 0}
   minCameraPos: {x: 0, y: -0.38, z: -10}
   maxCameraPos: {x: 1.31, y: -0.38, z: -10}
+  halfHeight: 0
+  halfWidth: 0
+  clampedX: 0
+  clampedY: 0
+  miniG_Waves_BG: {fileID: 0}
+  miniG_Boss_BG: {fileID: 0}
 --- !u!82 &1766633300
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30678,6 +30669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 821266805}
+  - {fileID: 110341291}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31576,7 +31568,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2123362841}
   - component: {fileID: 2123362840}
-  - component: {fileID: 2123362842}
   m_Layer: 0
   m_Name: BG_Papelaria_FOOSJFOSHDFISHODIFJSIODJFIOSDJFO
   m_TagString: Untagged
@@ -31645,31 +31636,6 @@ Transform:
   m_Father: {fileID: 1893092193}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2123362842
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2123362839}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.2, y: 10.8}
-    newSize: {x: 19.2, y: 10.8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 19.2, y: 10.8}
-  m_EdgeRadius: 0
 --- !u!1 &2124674255
 GameObject:
   m_ObjectHideFlags: 0
