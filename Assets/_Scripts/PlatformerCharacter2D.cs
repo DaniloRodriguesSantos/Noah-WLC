@@ -63,6 +63,8 @@ public class PlatformerCharacter2D : MonoBehaviour
 
     public bool changeCameraSize = true;
 
+    [HideInInspector] public bool allowDeactvArea = false;
+
     private void Awake()
     {
         // Setting up references.
@@ -241,10 +243,10 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "Botao")
-        {
-            other.gameObject.SetActive(false);
-        }
+        //if (other.gameObject.tag == "Botao")
+        //{
+        //    other.gameObject.SetActive(false);
+        //}
 
         if (other.gameObject.CompareTag("FimDemo"))
         {
@@ -296,16 +298,109 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
         }
 
+        if (GOController.deactActvAreas)
+        {
+            #region Activate Areas
+            if (other.gameObject.name == "QuartoNoah_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "QuartoNoah")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "SalaNoah_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "SalaDeEstar")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "PortariaNoah_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Predio")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "Escola_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Escola")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "SalaAula_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "SalaDeAula")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            // Nao colocar o refeitorio pois buga a mudança de tempo no dia
+            if (other.gameObject.name == "Refeitorio_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Refeitorio")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "MetroEscola_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Rua_Parent")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "PapelariaMercado_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Dia_2_3_PapelariaMercado_BG")
+                    {
+                        GOController.gameAreas[i].SetActive(true);
+                    }
+                }
+            }
+            #endregion
+        }
         #region Camera Bounds
         if (changeCameraSize)
         {
             // Camera Size = 5f
-            if (other.gameObject.transform.name == "Papelaria_BG_ForCamera" ||
-                other.gameObject.transform.name == "QuartoNoah_BG_ForCamera" ||
-                other.gameObject.transform.name == "SalaNoah_BG_ForCamera" ||
-                other.gameObject.transform.name == "Escola_BG_ForCamera" ||
-                other.gameObject.transform.name == "SalaAula_BG_ForCamera" ||
-                other.gameObject.transform.name == "Refeitorio_BG_ForCamera")
+            if (other.gameObject.name == "Papelaria_BG_ForCamera" ||
+                other.gameObject.name == "QuartoNoah_BG_ForCamera" ||
+                other.gameObject.name == "SalaNoah_BG_ForCamera" ||
+                other.gameObject.name == "Escola_BG_ForCamera" ||
+                other.gameObject.name == "SalaAula_BG_ForCamera" ||
+                other.gameObject.name == "Refeitorio_BG_ForCamera")
             {
                 BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
                 camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
@@ -316,7 +411,7 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
             //-----------------
 
-            if (other.gameObject.transform.name == "PortariaNoah_BG_ForCamera")
+            if (other.gameObject.name == "PortariaNoah_BG_ForCamera")
             {
                 BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
                 camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
@@ -327,8 +422,8 @@ public class PlatformerCharacter2D : MonoBehaviour
             }
 
             // Camera Size = 5.83f
-            if (other.gameObject.transform.name == "MetroEscola_BG_ForCamera" ||
-                other.gameObject.transform.name == "PapelariaMercado_BG_ForCamera")
+            if (other.gameObject.name == "MetroEscola_BG_ForCamera" ||
+                other.gameObject.name == "PapelariaMercado_BG_ForCamera")
             {
                 BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
                 camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
@@ -338,7 +433,7 @@ public class PlatformerCharacter2D : MonoBehaviour
                 mainCamera.orthographicSize = 5.83f;
             }
 
-            if (other.gameObject.transform.CompareTag("PensamentoEscolha"))
+            if (other.gameObject.CompareTag("PensamentoEscolha"))
             {
                 BoxCollider2D boxBounds = other.gameObject.GetComponent<BoxCollider2D>();
                 camera2DFollow_Script.minCameraPos = boxBounds.bounds.min;
@@ -359,6 +454,201 @@ public class PlatformerCharacter2D : MonoBehaviour
 
         }
         #endregion
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (GOController.deactActvAreas)
+        {
+            #region Deactivate Areas
+
+            if (other.gameObject.name == "QuartoNoah_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "QuartoNoah")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "SalaNoah_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "SalaDeEstar")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "PortariaNoah_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Predio")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "Escola_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Escola")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "SalaAula_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "SalaDeAula")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        } else if(allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            // Nao colocar o refeitorio pois buga a mudança de tempo no dia
+            if (other.gameObject.name == "Refeitorio_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Refeitorio")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "MetroEscola_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Rua_Parent")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+            if (other.gameObject.name == "PapelariaMercado_BG_ForCamera")
+            {
+                for (int i = 0; i < GOController.gameAreas.Length; i++)
+                {
+                    if (GOController.gameAreas[i].name == "Dia_2_3_PapelariaMercado_BG")
+                    {
+                        if (pensamentoController_Script.entrouPensamento_Tipo2)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                        }
+                        else if (allowDeactvArea)
+                        {
+                            StartCoroutine(returnArea(GOController.gameAreas[i]));
+                            StartCoroutine(DeactAreaCoroutine());
+                        }
+                        else
+                        {
+                            GOController.gameAreas[i].SetActive(false);
+                        }
+                    }
+                }
+            }
+
+
+            #endregion
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -394,6 +684,19 @@ public class PlatformerCharacter2D : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(seconds);
         dayTimeChangeOBJ.SetActive(true);
+    }
+
+    private IEnumerator returnArea(GameObject area)
+    {
+        yield return new WaitForSeconds(2.5f);
+        area.SetActive(false);
+    }
+
+    public IEnumerator DeactAreaCoroutine()
+    {
+        yield return new WaitForSeconds(2f);
+        Debug.Log("Entrou nessa coisa");
+        allowDeactvArea = false;
     }
 }
 

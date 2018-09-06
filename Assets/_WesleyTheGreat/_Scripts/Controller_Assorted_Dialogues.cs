@@ -78,6 +78,9 @@ public class Controller_Assorted_Dialogues : MonoBehaviour
     public GameObject vaca;
     public GameObject vaca_2;
     public GameObject PortaSalaDepois_CompleteAFrase;
+
+
+
     // Use this for initialization
     public void finalizarCompleteFrase()
     {
@@ -104,10 +107,16 @@ public class Controller_Assorted_Dialogues : MonoBehaviour
         }
 
         script_pensamentoController = GameObject.Find("PensamentoController").GetComponent<PensamentoController>();
+
+        //Alterações Danilo
         if (SceneManager.GetActiveScene().name == "Dia_1")
         {
-            script_Teleporte = GameObject.Find("Teleporte(sala<->escola)").GetComponent<Teleporte>();
+            if (GameObject.Find("Teleporte(sala<->escola)") != null)
+            {
+                script_Teleporte = GameObject.Find("Teleporte(sala<->escola)").GetComponent<Teleporte>();
+            }
         }
+
         //CacaPalavras = GameObject.Find("_Caça-Palavras");
         //CacaPalavras2 = GameObject.Find("_Caça-Palavras2");
     }
@@ -127,6 +136,8 @@ public class Controller_Assorted_Dialogues : MonoBehaviour
                 }
             }
         }
+
+
     }
 
     void Update()
@@ -169,6 +180,7 @@ public class Controller_Assorted_Dialogues : MonoBehaviour
             case FSMState.Notificacao: notifi_State(); break;
         }
     }
+
     public void notifi_State()
     {
         if (travarMovimentacao)

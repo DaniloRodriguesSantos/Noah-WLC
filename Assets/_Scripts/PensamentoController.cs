@@ -23,7 +23,7 @@ public class PensamentoController : MonoBehaviour
     private Transform[] position_EscolhaArray;
     public int puzzleInfo;
     [HideInInspector] public bool entrouPensamento_Tipo1 = false;
-    [HideInInspector] public bool entrouPensamento_Tipo2 = false;
+    public bool entrouPensamento_Tipo2 = false;
     #endregion
     [HideInInspector] public bool trocaPosicao_PTipo1;
     [HideInInspector] public bool trocaPosicao_PTipo2;

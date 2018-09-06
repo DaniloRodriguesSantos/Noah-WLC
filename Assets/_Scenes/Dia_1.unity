@@ -22823,6 +22823,7 @@ MonoBehaviour:
   - {fileID: 1099456398}
   - {fileID: 104145770}
   changeCameraSize: 1
+  allowDeactvArea: 0
 --- !u!50 &452206297
 Rigidbody2D:
   serializedVersion: 4
@@ -58852,13 +58853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc2364c804db094fa88f8f76520d86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoundaries:
-  - {fileID: 2133292990}
-  - {fileID: 650827250}
-  platformNoFall: []
-  platformBoundaries_Script: {fileID: 0}
-  platformConnected: 0
-  isConnected: 0
 --- !u!1 &1241573539
 GameObject:
   m_ObjectHideFlags: 0
@@ -83198,13 +83192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc2364c804db094fa88f8f76520d86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBoundaries:
-  - {fileID: 738250530}
-  - {fileID: 1544938519}
-  platformNoFall: []
-  platformBoundaries_Script: {fileID: 0}
-  platformConnected: 0
-  isConnected: 0
 --- !u!1 &1752067359
 GameObject:
   m_ObjectHideFlags: 0
@@ -94458,6 +94445,15 @@ MonoBehaviour:
   pravoltar_Dia3_Point: {fileID: 1112160706}
   praIr_Dia3_Point: {fileID: 1112160705}
   completaFrase_Puzzle: {fileID: 0}
+  gameAreas:
+  - {fileID: 911689775}
+  - {fileID: 1557834194}
+  - {fileID: 1844818203}
+  - {fileID: 1246565848}
+  - {fileID: 678840201}
+  - {fileID: 901258499}
+  - {fileID: 1349684860}
+  deactActvAreas: 1
 --- !u!1 &1941819313
 GameObject:
   m_ObjectHideFlags: 0

@@ -43,6 +43,9 @@ public class GameController : MonoBehaviour {
     public Transform praIr_Dia3_Point;
     public GameObject completaFrase_Puzzle;
 
+    public GameObject[] gameAreas;
+    public bool deactActvAreas;
+
     private void Awake(){
 		platformer2dcontrol_Script = GameObject.FindGameObjectWithTag ("Player").GetComponent<Platformer2DUserControl> ();
 		pensamentoController_Script = GameObject.Find ("PensamentoController").GetComponent<PensamentoController> ();
@@ -86,13 +89,24 @@ public class GameController : MonoBehaviour {
 
         }
 
+        if (deactActvAreas)
+        {
+            for (int i = 0; i < gameAreas.Length; i++)
+            {
+                gameAreas[i].SetActive(false);
+            }
+
+            // Primeira área da cena
+            gameAreas[0].SetActive(true);
+        }
+
+
         resetCanRetry();
     }
 
 	// Update is called once per frame
 	void Update () {
 
-		Inputs ();
 		Prologo();
         DayTimeChange();
 
@@ -143,11 +157,11 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void Inputs()
-	{
-		// Button to Interact with something
-		ip_Interactable = Input.GetKeyDown(KeyCode.R);
-	}
+ //   public void Inputs()
+	//{
+	//	// Button to Interact with something
+	//	ip_Interactable = Input.GetKeyDown(KeyCode.R);
+	//}
 
 	void Prologo()
 	{

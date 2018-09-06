@@ -36,17 +36,24 @@ public class Teleporte : MonoBehaviour
 
     Audio_MainScript script_Audio_MainScript;
     Platformer2DUserControl script_Platformer2DUserControl;
+
+    //Alterações Danilo
+    private PlatformerCharacter2D platformer2DCharacter_Script;
     private void Awake()
     {
         Player = GameObject.Find("Player").GetComponent<Transform>();
         script_Platformer2DUserControl = Player.GetComponent<Platformer2DUserControl>();
         script_Audio_MainScript = GameObject.Find("Main Camera").GetComponent<Audio_MainScript>();
+        platformer2DCharacter_Script = GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformerCharacter2D>();
     }
 
     public void teleportar()
     {
         Player.position = metroStation.transform.position;
         script_Platformer2DUserControl.iNeverFreeze = true;
+
+        //Alterações Danilo
+        platformer2DCharacter_Script.allowDeactvArea = true;
 
         /*if (comendoDia1)
         {
@@ -127,6 +134,8 @@ public class Teleporte : MonoBehaviour
             StartCoroutine(finalizarDia());
         }
     }
+
+
     IEnumerator dpoisMercado()
     {
         yield return new WaitForSeconds(2);
